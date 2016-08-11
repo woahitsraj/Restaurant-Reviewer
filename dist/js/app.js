@@ -1,1 +1,0 @@
-var restaurantReviewer=angular.module("restaurantReviewer",["ngRoute","ngResource"]);restaurantReviewer.controller("mainController",["$scope",function(e){}]),restaurantReviewer.controller("restaurantController",["$scope",function(e){}]);

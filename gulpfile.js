@@ -1,8 +1,7 @@
-var gulp = require("gulp");
-var babel = require("gulp-babel");
+var gulp = require('gulp');
+var babel = require('gulp-babel');
 var minifyCss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var minifyHTML = require('gulp-minify-html');
 var browserSync = require('browser-sync').create();
 
@@ -10,7 +9,6 @@ var browserSync = require('browser-sync').create();
 gulp.task('minify-css', function() {
   gulp.src('./src/css/*.css')
     .pipe(gulp.dest('./dist/css'))
-    .pipe(rename('bundle.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('./dist/css'));
 });
