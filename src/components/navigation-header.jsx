@@ -6,7 +6,7 @@ class NavigationHeader extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo center">Restaurant Reviewer</a>
+          <span className="brand-logo center">Restaurant Reviewer</span>
         </div>
       </nav>
       );
