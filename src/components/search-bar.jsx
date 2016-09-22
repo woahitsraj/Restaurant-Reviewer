@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchPlaces } from '../actions/index';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -15,13 +18,14 @@ class SearchBar extends Component {
 
   onInputChange(event) {
     this.setState({
-      term: event.traget.value
+      term: event.target.value
     })
   }
 
   onFormSubmit(event) {
     event.preventDefault();
-    
+    this.props.fetchPlaces(this.state.term);
+    this.setState({ term: '' });
   }
 
   render() {
@@ -44,6 +48,8 @@ class SearchBar extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchPlaces }, dispatch);
+}
 
-
-export default SearchBar;
+export default connect(null, mapDispatchToProps)(SearchBar);

@@ -1,16 +1,12 @@
-import GoogleMaps from '@google/maps';
-const API_KEY = 'AIzaSyDLHrCGSCyk2ruYtiY8CTs6-FD2D2W6v3g';
-const googleMapsClient = GoogleMaps.createClient({
-  key: API_KEY
-});
+const API_KEY = 'AIzaSyB2Zf7JBuMAsncTfAS3dtbplesXEipQweE';
+const ROOT_URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${API_KEY}`
 
 export const FETCH_PLACES = 'FETCH_PLACES'
 export function fetchPlaces(query) {
-  const request = googleMapsClient.places({
-    query,
-    type: 'restaurant',
-  }).asPromise();
-  console.log(request);
+  const url = `${ROOT_URL}&type=restaurant&keyword=${query}`;
+  const request = fetch(url, {
+    method: 'get'
+  });
   return {
     type: FETCH_PLACES,
     payload: request
